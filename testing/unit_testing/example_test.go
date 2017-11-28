@@ -17,6 +17,8 @@ func Test_HelloWorld(t *testing.T) {
 
 	exp := "Hello World"
 	act := res.Body.String()
+	defer res.Body.Close()
+	
 	if exp != act {
 		t.Fatalf("Expected %s gog %s", exp, act)
 	}
